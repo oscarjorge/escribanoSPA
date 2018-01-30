@@ -1,33 +1,70 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { HttpHeaders } from '@angular/common/http';
+import { HttpHeaders, HttpParams } from '@angular/common/http';
+import { BaseService } from "./base.service";
 @Injectable()
 export class LoginService {
-  // declare var jQuery:any;
-  // declare var $:any;
-  constructor(private http: HttpClient) { }
-  getToken(username:string,pass:string){
-    const body = {grant_type: "password",username:username, password:pass};
-    this.http.post(
-      'http://localhost:2881/token', 
-      this.getFormUrlEncoded(body),
-      {
-        headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded'),
-      }    
-    ).subscribe(data => {
-      localStorage.setItem('escribano_token', data['access_token']);
+  constructor(private http: HttpClient, private base: BaseService) {
+
+  }
+  getToken(username: string, pass: string) {
+    return new Promise((resolve, reject) => {
+      const body = { grant_type: "password", username: username, password: pass };
+      this.http.post(
+        this.base.getPath('token'),
+        this.base.getFormUrlEncoded(body),
+        {
+          headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded'),
+        }
+      ).subscribe(data => {
+        localStorage.setItem('escribano_token', data['access_token']);
+        resolve(true);
+      });
+    });
+  }
+  loginSocialNetwork(provider: string) {
+    return new Promise((resolve, reject) => {
+      let Params = new HttpParams();
+
+    // Begin assigning parameters
+    Params = Params.append('provider', provider);
+    
+      this.http.get(
+        this.base.getPath('api/login/externalLogin'),
+        {
+          params: Params,
+          //headers: new HttpHeaders().set('Access-Control-Allow-Origin', '*'),
+          //responseType: 'text'
+        }
+      ).subscribe(data => {
+        console.log(data);
+        
+        resolve(true);
+      },
+      error=>{
+        console.error('peta');
+        reject(error);
+        
+      }
+    )
     });
 
   }
-  getFormUrlEncoded(toConvert) {
-		const formBody = [];
-		for (const property in toConvert) {
-			const encodedKey = encodeURIComponent(property);
-			const encodedValue = encodeURIComponent(toConvert[property]);
-			formBody.push(encodedKey + '=' + encodedValue);
-		}
-		return formBody.join('&');
-	}
+
+  authorizeAdmin() {
+    console.log('antes')
+    return this.http.post(
+      this.base.getPath('api/token/authorizeAdmin'),
+      {},
+      {
+        headers: this.base.getHeaderToken(),
+      }
+    ).toPromise();
+
+  }
+  logOut() {
+    localStorage.removeItem(this.base.tokenStorage);
+  }
 }
 // $.ajax({
     //   url: "http://localhost:2881/api/token/AuthorizeAdmin",

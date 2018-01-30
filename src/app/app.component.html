@@ -1,6 +1,19 @@
-<app-login>
+<span>Todo el chorro de mierda</span>
+<button class="btn btn-primary pull-right" *ngIf="!base.isAuth() && !mostrarLogin"
+(click)="mostrarLogin=true;mostrarRegistro=false" >
+    Inicia sesión
+</button>
+<button class="btn btn-primary pull-right"  *ngIf="!base.isAuth() && !mostrarRegistro" 
+(click)="mostrarRegistro=true;mostrarLogin=false" >
+    Regístrate
+</button>
+<app-login  (logueado)="recienLogado($event)" *ngIf="!base.isAuth() && mostrarLogin">
   
-
-
 </app-login>
+<app-registro *ngIf="!base.isAuth() && mostrarRegistro">
+        
+</app-registro>
+<app-logout *ngIf="base.isAuth()">
+        
+</app-logout>
 
