@@ -1,0 +1,40 @@
+<form role="form" id="formLocation" class="form">
+  <div class="col-lg-6 form-group" id="capamail">
+      <div class="row">
+
+          <div class="col-lg-6">
+              <h2>Escríbenos...</h2>
+          </div>
+      </div>
+      <div class="form-group">
+          <label for="txtNombre" id="Label1" class="control-label">Nombre</label>
+          <div class="input-group">
+              <input type="text" id="txtName" name="txtName" class="form-control" placeholder="Escribe aquí tu nombre" />
+              <span class="input-group-addon"><span class="fa fa-asterisk"></span></span>
+          </div>
+      </div>
+      <div class="form-group">
+          <label for="txtEmail" id="Label2" class="control-label">Mail</label>
+          <div class="input-group">
+              <span class="input-group-addon"><span class="fa fa-envelope"></span></span>
+              <input type="text" id="txtEmail" name="txtEmail" class="form-control" placeholder="Escribe aquí tu mail" />
+              <span class="input-group-addon"><span class="fa fa-asterisk"></span></span>
+          </div>
+      </div>
+      <div class="form-group">
+          <label for="txtAsunto" id="Label3" class="control-label">Asunto</label>
+          <input type="text" id="txtAsunto" name="txtAsunto" class="form-control" placeholder="Cuál es el asunto del mensaje" />
+      </div>
+      <div class="form-group">
+          <label for="txtMensaje" id="Label4" class="control-label">Mensaje</label>
+          <textarea cols="70" rows="5" id="txtMensaje" class="form-control" maxlength="5000" placeholder="Cuéntanos"></textarea>
+      </div>
+      <div class="form-group">
+          <button class="submit btn btn-default btn-lg pull-right" type="button" id="btnEnviar"><span class="fa fa-align-left fa-send"></span>Enviar</button>
+      </div>
+      <div class="form-group">
+          <div class="g-recaptcha" data-sitekey="6LfS8hQTAAAAAKROByGA6HLfn0fTCfBiUhi0X-eK"></div>
+          <input type="hidden" class="hiddenRecaptcha required" name="hiddenRecaptcha" id="hiddenRecaptcha"/>
+      </div>
+  </div>
+</form>
