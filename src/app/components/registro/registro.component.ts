@@ -45,14 +45,22 @@ export class RegistroComponent implements OnInit {
   submitForm(value: any): void {
     if (!this.registroForm.invalid) {
       console.log(this.registro)
-      this.registroService.registrar(this.registro).then(r => {
-        this.loginService.getToken(this.registro.Username, this.registro.Password).then(result => {
-          if (result)
-            this.logueado.emit(true);
-        }).catch(r => {
-          console.error('El usuario se ha registrado pero no ha sido posible iniciar sesión.');
+      this.registroService.registrar(this.registro).then(data => {
+        // this.loginService.getToken(this.registro.Username, this.registro.Password).then(result => {
+        //   if (result)
+        //     this.logueado.emit(true);
+        // }).catch(r => {
+        //   console.error('El usuario se ha registrado pero no ha sido posible iniciar sesión.');
 
-        });
+        // });
+        
+        var mensaje = data;
+        if (mensaje == '') {
+            alert("¡¡¡El usuario ha sido creado!!!. Ha sido enviado un correo electrónico a la cuenta introducida para confirmar el registro. ");
+            window.location.replace("/AntonioEscribano/inicio.aspx");
+        }
+        else
+            alert(mensaje);        
       }).catch(r => {
         console.error('Se ha producido un error y el usuario no se ha podido registrar.')
       })
