@@ -1,10 +1,12 @@
 import { RouterModule, Routes } from '@angular/router';
 
 
-// import { PartidoDetalleComponent } from './components/partidos/partidoDetalle.component';
+
+import { IndexPrivateComponent } from './components/private/index/index-private.component';
 
 // import { AuthFireBaseService } from './services/authFireBase.service';
 const APP_ROUTES: Routes = [
+    { path: 'index_private', component: IndexPrivateComponent },
     // { path: 'home', component: HomeComponent },
     // { path: 'jugadores', component: JugadoresComponent },
     // { path: 'jugador/:id', component: JugadorComponent },
@@ -31,7 +33,7 @@ const APP_ROUTES: Routes = [
 
     // { canActivate: [AuthFireBaseService], path: 'editarEquipo/:id', component: EdicionEquipoComponent },
     
-    // { path: '**', pathMatch: 'full', redirectTo: 'home' }
+    { path: '**', pathMatch: 'full', redirectTo: 'index' }
 ]
 
 export const APP_ROUTING = RouterModule.forRoot(APP_ROUTES, { useHash: true });

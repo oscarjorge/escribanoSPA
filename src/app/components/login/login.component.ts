@@ -10,6 +10,7 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
   @Output() logueado = new EventEmitter();
+  @Output() esconder = new EventEmitter();
   constructor(private loginService: LoginService,private formBuilder: FormBuilder) { 
    
   }

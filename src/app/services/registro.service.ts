@@ -19,19 +19,16 @@ export class RegistroService {
     var registroClienteAPI ={
       Descripcion: registro.Username
     }	
-    var a = {"us":{"Nick":"Organization"},"per":{"Nombre":"a"}};
-//    var DTO = { 'us': registroUsuarioAPI, 'per': registroPersonaAPI, 'cli': registroClienteAPI, 'password': registro.Password };
-    var DTO = { 'us': registroUsuarioAPI, 'per': registroPersonaAPI };
     return new Promise((resolve, reject) => {
       this.http.post(
         this.base.getPath('api/Registro/Registrar'),
-        a,
+        [ registroUsuarioAPI, registroPersonaAPI,registroClienteAPI,registro.Password ],
         {
           headers: new HttpHeaders().set('Content-Type', 'application/json'),
         }
       ).subscribe(
         data => {
-          resolve(true);
+          resolve(data);
         },
         error => {
           reject(error);

@@ -16,9 +16,9 @@ export class RegistroComponent implements OnInit {
     Username: 'a',
     ConfirmPassword: 'aaaaaaaaaaaaaaaa',
     Password: 'aaaaaaaaaaaaaaaa',
-    Email: 'a@a'
+    Email: 'oscarjorgecastillo@gmail.com'
   };
-  @Output() logueado = new EventEmitter();
+  @Output() esconder = new EventEmitter();
   constructor(private registroService: RegistroService,
     private formBuilder: FormBuilder,
     private loginService: LoginService
@@ -55,9 +55,9 @@ export class RegistroComponent implements OnInit {
         // });
         
         var mensaje = data;
-        if (mensaje == '') {
-            alert("¡¡¡El usuario ha sido creado!!!. Ha sido enviado un correo electrónico a la cuenta introducida para confirmar el registro. ");
-            window.location.replace("/AntonioEscribano/inicio.aspx");
+        if (mensaje == '' || mensaje == null) {
+            alert("¡¡¡El usuario ha sido creado!!!. Por su seguridad se ha enviado un correo electrónico a la cuenta introducida para confirmar el registro. ");
+            this.esconder.emit(true);
         }
         else
             alert(mensaje);        

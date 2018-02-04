@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import {HttpClientModule} from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import {CookieService} from 'angular2-cookie/core';
 import { APP_ROUTING } from './app.routes';
 
 import { BaseService } from './services/base.service';
@@ -14,10 +14,13 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { RegistroComponent } from './components/registro/registro.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { ContactoComponent } from './components/contacto/contacto.component';
-import { LlamameComponent } from './components/llamame/llamame.component';
+import { ConfirmaRegistroComponent } from './components/confirma-registro/confirma-registro.component';
+import { NavbarComponent } from './components/public/navbar/navbar.component';
+import { FooterComponent } from './components/public/footer/footer.component';
+import { ContactoComponent } from './components/public/contacto/contacto.component';
+import { LlamameComponent } from './components/public/llamame/llamame.component';
+import { IndexComponent } from './components/public/index/index.component';
+import { IndexPrivateComponent } from './components/private/index/index-private.component';
 
 
 @NgModule({
@@ -29,19 +32,24 @@ import { LlamameComponent } from './components/llamame/llamame.component';
     NavbarComponent,
     FooterComponent,
     ContactoComponent,
-    LlamameComponent
+    LlamameComponent,
+    ConfirmaRegistroComponent,
+    IndexComponent,
+    IndexPrivateComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    APP_ROUTING,
     // Including the ReactiveFormsModule in our application
     ReactiveFormsModule,
   ],
   providers: [
     BaseService, 
     LoginService,
-    RegistroService
+    RegistroService,
+    CookieService
   ],
   bootstrap: [AppComponent]
 })

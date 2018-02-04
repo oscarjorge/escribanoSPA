@@ -1,7 +1,7 @@
-<app-navbar></app-navbar>
-<div class="container main-container">
-    <!-- <router-outlet></router-outlet> -->
-</div>
+
+
+
+<!-- <a class="nav-link" [routerLink]="['login']"  routerLinkActive="active"><i class="fa fa-sign-in" aria-hidden="true"></i> Inicia sesión </a>
 <button class="btn btn-primary pull-right" *ngIf="!base.isAuth() && !mostrarLogin" (click)="mostrarLogin=true;mostrarRegistro=false">
     Inicia sesión
 </button>
@@ -16,32 +16,8 @@
 </app-registro>
 <app-logout *ngIf="base.isAuth()">
 
-</app-logout>
-<div id="contacta" class="container">
-
-    <div class="card">
-        <div class=" card-block">
-            <strong>
-                <span class="fa fa-asterisk"></span>Campo requerido</strong>
-        </div>
+</app-logout> -->
+<app-index></app-index>
+<div class="container main-container">
+        <router-outlet></router-outlet>    
     </div>
-    <app-contacto></app-contacto>
-    <app-llamame></app-llamame>
-    <div class="row">
-    </div>
-    <div class="row">
-        <div class="col-lg-7 col-xs-12 form-group">
-            <div class=" form-group  alert alert-info">
-                <img src="/AntonioEscribano/images/iconos/mapa.png" alt="Dirección" height="42" width="42"> Matarredo de Abajo, 10 (Samaniego -- 01307 -- Álava -- España)
-            </div>
-            <div class="form-group alert alert-info">
-                <img src="/AntonioEscribano/images/iconos/mail.png" alt="Mail" height="42" width="42"> antonioescribano@antonioescribano.es
-
-            </div>
-            <div class="form-group alert alert-info">
-                <img src="/AntonioEscribano/images/iconos/telefono.png" alt="Teléfono" height="42" width="42"> 649046964 / 676115428
-            </div>
-        </div>
-    </div>
-</div>
-<!-- <app-footer></app-footer> -->
