@@ -14,13 +14,13 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { RegistroComponent } from './components/registro/registro.component';
-import { ConfirmaRegistroComponent } from './components/confirma-registro/confirma-registro.component';
 import { NavbarComponent } from './components/public/navbar/navbar.component';
 import { FooterComponent } from './components/public/footer/footer.component';
 import { ContactoComponent } from './components/public/contacto/contacto.component';
 import { LlamameComponent } from './components/public/llamame/llamame.component';
 import { IndexComponent } from './components/public/index/index.component';
 import { IndexPrivateComponent } from './components/private/index/index-private.component';
+import { LoginRegistroComponent } from './components/login-registro/login-registro.component';
 
 
 @NgModule({
@@ -33,9 +33,9 @@ import { IndexPrivateComponent } from './components/private/index/index-private.
     FooterComponent,
     ContactoComponent,
     LlamameComponent,
-    ConfirmaRegistroComponent,
     IndexComponent,
-    IndexPrivateComponent
+    IndexPrivateComponent,
+    LoginRegistroComponent
   ],
   imports: [
     BrowserModule,

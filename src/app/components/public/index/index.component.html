@@ -1,9 +1,7 @@
-<div *ngIf="!bmostrarLogin && !bmostrarRegistro">
-    <app-navbar (mostrarLogin)="bmostrarLogin=$event" (mostrarRegistro)="bmostrarRegistro=$event"></app-navbar>
+<div>
+    <app-navbar></app-navbar>
     <div id="contenedor" class="container">
         <div id="contacta">
-
-
             <div class="row">
                     <small class="text-muted"><span class="fas fa-asterisk"></span> Campos requeridos</small>
             </div>
@@ -39,5 +37,3 @@
     <!-- <app-footer></app-footer> -->
 </div>
 
-<app-login (esconder)="esconderLogin($event)" *ngIf="bmostrarLogin"></app-login>
-<app-registro (esconder)="esconderRegistro($event)" *ngIf="bmostrarRegistro"></app-registro>

@@ -1,0 +1,7 @@
+<li class="nav-item" *ngIf="!isAuth()">
+    <button class="btn btn-sm btn-primary" (click)="mostrarLogin()"><i class="fas fa-sign-in-alt"></i></button>
+    <button class="btn btn-sm btn-primary" (click)="mostrarRegistro()">Registrar</button>
+</li>
+<li class="nav-item" *ngIf="isAuth()">
+    <button class="btn btn-sm btn-primary" (click)="logOut()"><i class="fas fa-sign-out-alt"></i></button>
+</li>

@@ -3,10 +3,16 @@ import { RouterModule, Routes } from '@angular/router';
 
 
 import { IndexPrivateComponent } from './components/private/index/index-private.component';
+import { IndexComponent } from './components/public/index/index.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegistroComponent } from './components/registro/registro.component';
 
 // import { AuthFireBaseService } from './services/authFireBase.service';
 const APP_ROUTES: Routes = [
-    { path: 'index_private', component: IndexPrivateComponent },
+    { path: 'index_public', component: IndexComponent },
+    { path: 'index_private', component:  IndexPrivateComponent},
+    { path: 'login', component:  LoginComponent},
+    { path: 'registro', component:  RegistroComponent},
     // { path: 'home', component: HomeComponent },
     // { path: 'jugadores', component: JugadoresComponent },
     // { path: 'jugador/:id', component: JugadorComponent },
@@ -33,7 +39,7 @@ const APP_ROUTES: Routes = [
 
     // { canActivate: [AuthFireBaseService], path: 'editarEquipo/:id', component: EdicionEquipoComponent },
     
-    { path: '**', pathMatch: 'full', redirectTo: 'index' }
+    { path: '**', pathMatch: 'full', redirectTo: 'index_public' }
 ]
 
 export const APP_ROUTING = RouterModule.forRoot(APP_ROUTES, { useHash: true });

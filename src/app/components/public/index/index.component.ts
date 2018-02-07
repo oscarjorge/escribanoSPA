@@ -8,8 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./index.component.css']
 })
 export class IndexComponent implements OnInit {
-  bmostrarLogin:boolean=false;
-  bmostrarRegistro:boolean=false;
+
   constructor(private _cookieService:CookieService, private _loginService:LoginService, private router: Router) { }
 
   ngOnInit() {
@@ -20,27 +19,8 @@ export class IndexComponent implements OnInit {
         this.router.navigate(['index_private']);
        }
       });
-     
-
     }
-    window.addEventListener('storage', function(e) {  
-      console.log(e);
-    });
   }
-  esconderLogin(e){
-    this.bmostrarLogin=false;
-    
-  }
-  mostrarLogin(e){
-    this.bmostrarLogin=true;
-   
-  }
-  esconderRegistro(e){
-   
-    this.bmostrarRegistro=false;
-  }
-  mostrarRegistro(e){
-   
-    this.bmostrarRegistro=true;
-  }
+
+  
 }

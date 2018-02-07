@@ -1,6 +1,7 @@
 import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
 import { LoginService } from '../../services/login.service';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -9,9 +10,8 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
-  @Output() logueado = new EventEmitter();
-  @Output() esconder = new EventEmitter();
-  constructor(private loginService: LoginService,private formBuilder: FormBuilder) { 
+
+  constructor(private loginService: LoginService,private formBuilder: FormBuilder, private router: Router) { 
    
   }
   loginSocialNetwork(provider:string){
@@ -23,8 +23,9 @@ export class LoginComponent implements OnInit {
     console.log(this.loginForm);
     if(!this.loginForm.invalid)
       this.loginService.getToken(value.username, value.pass).then(result=>{
+        console.log(result)
         if(result)
-          this.logueado.emit(true);
+        this.router.navigate(['index_private']);
       });
   }
   ngOnInit() {
@@ -33,5 +34,7 @@ export class LoginComponent implements OnInit {
       pass: ['', Validators.required],
     });
   }
-
+  salir(){
+    this.router.navigate(["index_public"])
+  }
 }

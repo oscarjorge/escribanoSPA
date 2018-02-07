@@ -1,4 +1,5 @@
 import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { RegistroService } from '../../services/registro.service';
 import { LoginService } from '../../services/login.service';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
@@ -18,10 +19,10 @@ export class RegistroComponent implements OnInit {
     Password: 'aaaaaaaaaaaaaaaa',
     Email: 'oscarjorgecastillo@gmail.com'
   };
-  @Output() esconder = new EventEmitter();
   constructor(private registroService: RegistroService,
     private formBuilder: FormBuilder,
-    private loginService: LoginService
+    private loginService: LoginService,
+    private router: Router
   ) {
 
   }
@@ -46,18 +47,10 @@ export class RegistroComponent implements OnInit {
     if (!this.registroForm.invalid) {
       console.log(this.registro)
       this.registroService.registrar(this.registro).then(data => {
-        // this.loginService.getToken(this.registro.Username, this.registro.Password).then(result => {
-        //   if (result)
-        //     this.logueado.emit(true);
-        // }).catch(r => {
-        //   console.error('El usuario se ha registrado pero no ha sido posible iniciar sesión.');
-
-        // });
-        
         var mensaje = data;
         if (mensaje == '' || mensaje == null) {
             alert("¡¡¡El usuario ha sido creado!!!. Por su seguridad se ha enviado un correo electrónico a la cuenta introducida para confirmar el registro. ");
-            this.esconder.emit(true);
+            this.router.navigate(["index_public"])
         }
         else
             alert(mensaje);        
@@ -66,5 +59,8 @@ export class RegistroComponent implements OnInit {
       })
     }
 
+  }
+  salir(){
+    this.router.navigate(["index_public"])
   }
 }
