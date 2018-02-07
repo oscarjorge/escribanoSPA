@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders } from '@angular/common/http';
+import { Router, ActivatedRouteSnapshot, RouterStateSnapshot, CanActivate } from '@angular/router';
 @Injectable()
 export class BaseService {
 
-  constructor() { 
+  constructor(private router:Router) { 
 
   }
   ls: any = localStorage; 
@@ -33,5 +34,13 @@ export class BaseService {
   }
   isAuth(){
     return localStorage.getItem(this.tokenStorage)!=null;
+  }
+  canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    if(!this.isAuth()){
+      this.router.navigate(['login']);
+      return false;
+    }
+    else
+      return true;
   }
 }

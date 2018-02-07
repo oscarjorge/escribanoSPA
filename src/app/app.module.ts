@@ -21,6 +21,7 @@ import { LlamameComponent } from './components/public/llamame/llamame.component'
 import { IndexComponent } from './components/public/index/index.component';
 import { IndexPrivateComponent } from './components/private/index/index-private.component';
 import { LoginRegistroComponent } from './components/login-registro/login-registro.component';
+import { NavbarPrivateComponent } from './components/private/navbar-private/navbar-private.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { LoginRegistroComponent } from './components/login-registro/login-regist
     LlamameComponent,
     IndexComponent,
     IndexPrivateComponent,
-    LoginRegistroComponent
+    LoginRegistroComponent,
+    NavbarPrivateComponent
   ],
   imports: [
     BrowserModule,
