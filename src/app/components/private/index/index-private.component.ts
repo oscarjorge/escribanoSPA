@@ -12,4 +12,5 @@ export class IndexPrivateComponent implements OnInit {
   ngOnInit() {
   }
 
+  
 }
