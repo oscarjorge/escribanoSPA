@@ -1,11 +1,11 @@
-<div class="container">
-    
+
+<div class="row">
+    <div class="col-md-6 offset-md-3">
       <div class="card">
         <div class="card-header">
-          Regístrate
-          <button type="submit" class="btn btn-primary pull-right" (click)="salir()"  >
-              Salir
-            </button>
+            <span>Regístrate</span>
+            <span  (click)="salir()"  ><i class="fas fa-times float-right"></i></span>
+          
         </div>
         <div class="card-body">
           
@@ -35,10 +35,11 @@
                 [ngClass]="{'has-error': registroForm.controls.confirmpass.errors && registroForm.controls.confirmpass.touched}">
               </div>
             
-            <button type="submit" class="btn btn-primary pull-right" [disabled]="!registroForm.valid"  >
+            <button type="submit" class="btn btn-primary float-right" [disabled]="!registroForm.valid"  >
                 Regístrate
             </button>
           </form>
         </div>
       </div>
     </div>
+  </div>
