@@ -1,0 +1,37 @@
+body{
+    color: #777;
+}
+
+.btn{
+    cursor: pointer;
+}
+.btn:disabled{
+    cursor: default;
+}
+.has-error{
+    border-color: red!important;
+}
+.background-login{
+    background: url('./assets/images/backgroundBottles.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    /* content : "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat; */
+}
+.btn-social>svg, .btn-social-icon>svg{
+    color:white;
+    padding-top:6px;
+    }
+    .btn-social>.texto{
+        color:white;
+        
+        }

@@ -7,9 +7,15 @@
     letter-spacing: 4px;
     opacity:0.9;
 }
-.navbar-brand>p{
-    font-size: 10px;
-    margin-bottom:0.3rem;
+.dropdown-menu{
+    margin-bottom: 0;
+    background-color: #2d2d30;
+    border: 0;
+    font-size: 11px !important;
+    letter-spacing: 4px;
+}
+.dropdown-item:hover{
+    background-color: #2d2d30;
 }
 /* Add a gray color to all navbar links */
 .navbar li a, .navbar .navbar-brand { 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from '../../services/login.service';
+import { LoginService } from '../../shared/services/login.service'
 @Component({
   selector: 'app-logout',
   templateUrl: './logout.component.html',

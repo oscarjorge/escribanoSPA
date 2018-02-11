@@ -1,37 +1,57 @@
-
-<div class="row">
-  <div class="col-md-6 offset-md-3">
-    <div class="card">
-      <div class="card-header">
+<div class="container container-center">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="card">
+        <div class="card-header">
           <span>Inicia sesión en Antonio Escribano</span>
-          <span  (click)="salir()"  ><i class="fas fa-times float-right"></i></span>
-      </div>
-      <div class="card-body">
-        <a class="btn btn-block btn-social btn-google" (click)="loginSocialNetwork('google')">
-          <span class="fa fa-google"></span> Entrar con Google
-        </a>
-        <a class="btn btn-block btn-social btn-facebook" (click)="loginSocialNetwork('facebook')">
-          <span class="fa fa-facebook"></span> Entrar con Facebook
-        </a>
-        <hr/>
-        <form [formGroup]="loginForm" (ngSubmit)="submitForm(loginForm.value)">
-          <div class="form-group">
-            <label for="username">Nombre de usuario</label>
-            <input class="form-control" id="username" aria-describedby="emailHelp" placeholder="Nombre de usuario o correo electrónico"
-              (input)="username = $event.target.value" formControlName="username" [ngClass]="{'has-error': loginForm.controls.username.errors && loginForm.controls.username.touched}">
+          <span (click)="salir()"><i class="fas fa-times float-right"></i></span>
+        </div>
+        <div class="card-body">
+          <div class="row d-block d-sm-none">
+            <div class="col-6 float-left">
+              <a class="btn btn-social-icon btn-google" (click)="loginSocialNetwork('google')">
+                            <span class="fab fa-google"></span> 
+                          </a>
+            </div>
+            <div class="col-6 float-right">
+              <a class="btn btn-social-icon btn-facebook" (click)="loginSocialNetwork('facebook')">
+                              <span class="fab fa-facebook"></span> <span class="texto">Entrar con Facebook</span>
+                            </a>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="pass">Contraseña</label>
-            <input type="password" class="form-control" id="pass" placeholder="Contraseña" (input)="pass = $event.target.value" formControlName="pass"
-              [ngClass]="{'has-error': loginForm.controls.pass.errors && loginForm.controls.pass.touched}">
+          <div class="row d-none d-sm-block">
+            <div class="col-sm-6 float-left">
+              <a class="btn btn-social btn-google" (click)="loginSocialNetwork('google')">
+                          <span class="fab fa-google"></span> <div class="texto">Entrar con Google</div>
+                        </a>
+
+            </div>
+            <div class="col-sm-6 float-right">
+              <a class="btn btn-social btn-facebook" (click)="loginSocialNetwork('facebook')">
+                          <span class="fab fa-facebook"></span> <span class="texto">Entrar con Facebook</span>
+                        </a>
+            </div>
           </div>
           <hr/>
+          <form [formGroup]="loginForm" (ngSubmit)="submitForm(loginForm.value)">
+            <div class="form-group">
+              <label for="username">Nombre de usuario</label>
+              <input class="form-control" id="username" aria-describedby="emailHelp" placeholder="Nombre de usuario o correo electrónico"
+                (input)="username = $event.target.value" formControlName="username" [ngClass]="{'has-error': loginForm.controls.username.errors && loginForm.controls.username.touched}">
+            </div>
+            <div class="form-group">
+              <label for="pass">Contraseña</label>
+              <input type="password" class="form-control" id="pass" placeholder="Contraseña" (input)="pass = $event.target.value" formControlName="pass"
+                [ngClass]="{'has-error': loginForm.controls.pass.errors && loginForm.controls.pass.touched}">
+            </div>
+            <hr/>
 
-          <button type="submit" class="btn btn-primary float-right" [disabled]="!loginForm.valid">
-            Inicia sesión
-          </button>
+            <button type="submit" class="btn btn-primary float-right" [disabled]="!loginForm.valid">
+              Inicia sesión
+            </button>
 
-        </form>
+          </form>
+        </div>
       </div>
     </div>
   </div>

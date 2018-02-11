@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { BaseService} from "./services/base.service";
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,7 +9,7 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'app';
 
-  constructor(private base:BaseService, private router: Router) { 
+  constructor(private router: Router) { 
     this.router.navigate(['index_public']);
   }
   ngOnInit() {

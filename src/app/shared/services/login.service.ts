@@ -52,7 +52,7 @@ export class LoginService {
   }
 
   authorizeAdmin() {
-    console.log('antes')
+   
     return this.http.post(
       this.base.getPath('api/token/authorizeAdmin'),
       {},
@@ -64,6 +64,15 @@ export class LoginService {
   }
   logOut() {
     localStorage.removeItem(this.base.tokenStorage);
+  }
+  getInformationUser(){
+    return this.http.get(
+      this.base.getPath('api/login/getInformationUser'),
+      
+      {
+        headers: this.base.getHeaderToken(),
+      }
+    ).toPromise();
   }
 }
 // $.ajax({

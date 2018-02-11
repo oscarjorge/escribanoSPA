@@ -1,3 +1,23 @@
 .card-header>span :last-child{
     cursor: pointer;
 }
+.container-center {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.card{
+    background-color: transparent;
+}
+.card-header{
+    background-color: rgba(0, 0,0, 0.6);
+    color: white;
+}
+.card-body{
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+}
+.btn{
+    opacity: 1;
+}

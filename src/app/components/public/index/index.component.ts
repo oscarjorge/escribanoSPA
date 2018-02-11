@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {CookieService} from 'angular2-cookie/core';
-import { LoginService } from '../../../services/login.service';
+import { LoginService } from '../../../shared/services/login.service'
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-index',

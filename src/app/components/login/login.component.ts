@@ -1,5 +1,5 @@
-import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
-import { LoginService } from '../../services/login.service';
+import { Component, OnInit, EventEmitter, Input, Output, OnDestroy } from '@angular/core';
+import { LoginService } from '../../shared/services/login.service'
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 @Component({
@@ -7,12 +7,23 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit,  OnDestroy {
 
   loginForm: FormGroup;
 
   constructor(private loginService: LoginService,private formBuilder: FormBuilder, private router: Router) { 
-   
+    
+  }
+ 
+  ngOnInit() {
+    document.querySelector('body').classList.add('background-login');
+    this.loginForm = this.formBuilder.group({
+      username: ['', Validators.required],
+      pass: ['', Validators.required],
+    });
+  }
+  ngOnDestroy() {
+    document.querySelector('body').classList.remove('background-login');
   }
   loginSocialNetwork(provider:string){
     this.loginService.loginSocialNetwork(provider).then(result=>{}).catch(err=>console.error('No se ha podido iniciar sesión con ' + provider));
@@ -28,12 +39,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['index_private']);
       });
   }
-  ngOnInit() {
-    this.loginForm = this.formBuilder.group({
-      username: ['', Validators.required],
-      pass: ['', Validators.required],
-    });
-  }
+  
   salir(){
     this.router.navigate(["index_public"])
   }

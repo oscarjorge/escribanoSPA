@@ -1,0 +1,64 @@
+
+#myCarousel {
+    
+    margin:0 auto;
+}
+
+#myCarousel .carousel-inner > .item > img{
+       width:100%;
+       height:660px;
+       margin-top:50px;
+     }
+
+@media (min-height: 300px) {
+	#myCarousel .carousel-inner > .item > img { height: 300px; }
+}
+@media (min-height: 500px) {
+	#myCarousel .carousel-inner > .item > img { height: 500px; }
+    
+}
+
+@media (min-height: 800px) {
+	#myCarousel .carousel-inner > .item > img { height: 800px; }
+}
+@media (min-height: 1100px) {
+	#myCarousel .carousel-inner > .item > img { height: 1100px; }
+}
+
+#myCarousel .carousel {
+    margin-top:50px;
+    /*width:100%;
+    height: 660px;*/
+}
+#myCarousel .carousel-caption {
+   background:rgba(0,0,0,0.70);
+}
+
+
+/* faster sliding speed Esto no funciona en chrome
+#myCarousel .carousel-inner > .item {
+    -webkit-transition: 0.3s ease-in-out left;
+    -moz-transition: 0.3s ease-in-out left;
+    -o-transition: 0.3s ease-in-out left;
+    transition: 0.3s ease-in-out left;
+}*/
+
+#myCarousel .carousel-inner img {
+    -webkit-filter: grayscale(90%);
+    filter: grayscale(90%); /* make all photos black and white */ 
+    width: 100%; /* Set width to 100% */
+    margin: auto;
+}
+
+#myCarousel .carousel-caption h3 {
+    color: #fff !important;
+}
+/* Hide the carousel text when the screen is less than 600 pixels wide 
+@media (max-width: 600px) {
+    #myCarousel .carousel-caption {
+        display: none; 
+    }
+}*/
+
+
+      

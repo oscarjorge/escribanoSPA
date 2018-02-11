@@ -21,6 +21,8 @@
     "@angular/platform-browser": "^4.2.4",
     "@angular/platform-browser-dynamic": "^4.2.4",
     "@angular/router": "^4.2.4",
+    "@auth0/angular-jwt": "^1.0.0-beta.10",
+    "angular-bootstrap-md": "^5.1.2",
     "angular-popper": "^1.0.0-beta-1",
     "angular2-cookie": "^1.2.6",
     "bootstrap": "4.0.0-beta.2",

@@ -1,41 +1,39 @@
+<div class="container container-center">
+  <div class="row">
 
-<div class="row">
+
     <div class="col-md-6 offset-md-3">
       <div class="card">
         <div class="card-header">
-            <span>Regístrate</span>
-            <span  (click)="salir()"  ><i class="fas fa-times float-right"></i></span>
-          
+          <span>Regístrate</span>
+          <span (click)="salir()"><i class="fas fa-times float-right"></i></span>
+
         </div>
         <div class="card-body">
-          
+
           <form [formGroup]="registroForm" (ngSubmit)="submitForm(registroForm.value)">
             <div class="form-group">
               <label for="nombre">Nombre de usuario</label>
-              <input class="form-control" id="username" aria-describedby="emailHelp" placeholder="Nombre de usuario"
-                (input)="registro.Username = $event.target.value"  formControlName="username"
-                [ngClass]="{'has-error': registroForm.controls.username.errors && registroForm.controls.username.touched}">
+              <input class="form-control" id="username" aria-describedby="emailHelp" placeholder="Nombre de usuario" (input)="registro.Username = $event.target.value"
+                formControlName="username" [ngClass]="{'has-error': registroForm.controls.username.errors && registroForm.controls.username.touched}">
             </div>
             <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Correo electrónico"
-                  (input)="registro.Email = $event.target.value"  formControlName="email"
-                  [ngClass]="{'has-error': registroForm.controls.email.errors && registroForm.controls.email.touched}">
-              </div>
+              <label for="email">Email</label>
+              <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Correo electrónico" (input)="registro.Email = $event.target.value"
+                formControlName="email" [ngClass]="{'has-error': registroForm.controls.email.errors && registroForm.controls.email.touched}">
+            </div>
             <div class="form-group">
               <label for="pass">Contraseña</label>
-              <input type="password" class="form-control" id="pass" placeholder="Contraseña" 
-              (input)="registro.Password = $event.target.value" formControlName="pass"
-              [ngClass]="{'has-error': registroForm.controls.pass.errors && registroForm.controls.pass.touched}">
+              <input type="password" class="form-control" id="pass" placeholder="Contraseña" (input)="registro.Password = $event.target.value"
+                formControlName="pass" [ngClass]="{'has-error': registroForm.controls.pass.errors && registroForm.controls.pass.touched}">
             </div>
             <div class="form-group">
-                <label for="confirmpass">Repita contraseña</label>
-                <input type="password" class="form-control" id="confirmpass" placeholder="Repita la contraseña" 
-                (input)="registro.ConfirmPassword = $event.target.value" formControlName="confirmpass"
-                [ngClass]="{'has-error': registroForm.controls.confirmpass.errors && registroForm.controls.confirmpass.touched}">
-              </div>
-            
-            <button type="submit" class="btn btn-primary float-right" [disabled]="!registroForm.valid"  >
+              <label for="confirmpass">Repita contraseña</label>
+              <input type="password" class="form-control" id="confirmpass" placeholder="Repita la contraseña" (input)="registro.ConfirmPassword = $event.target.value"
+                formControlName="confirmpass" [ngClass]="{'has-error': registroForm.controls.confirmpass.errors && registroForm.controls.confirmpass.touched}">
+            </div>
+
+            <button type="submit" class="btn btn-primary float-right" [disabled]="!registroForm.valid">
                 Regístrate
             </button>
           </form>
@@ -43,3 +41,4 @@
       </div>
     </div>
   </div>
+</div>

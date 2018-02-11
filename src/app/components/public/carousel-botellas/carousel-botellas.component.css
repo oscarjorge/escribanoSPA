@@ -1,0 +1,16 @@
+#CarouselBotellas {
+    margin:0 auto;
+}
+
+#CarouselBotellas .carousel-inner > .carousel-item img{
+       width:200px;
+       height:700px;
+     }
+
+#CarouselBotellas .carousel {
+    width:100%;
+    height: 700px;
+}
+#CarouselBotellas .carousel-caption {
+    background:rgba(0,0,0,0.70);
+}

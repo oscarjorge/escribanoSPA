@@ -1,19 +1,30 @@
 import { RouterModule, Routes } from '@angular/router';
+import { AdministracionModule } from './administracion/administracion.module'
 
 
-
-import { IndexPrivateComponent } from './components/private/index/index-private.component';
+import { IndexPrivateComponent } from './administracion/components/index/index-private.component';
 import { IndexComponent } from './components/public/index/index.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistroComponent } from './components/registro/registro.component';
-import { BaseService } from './services/base.service';
-// import { AuthFireBaseService } from './services/authFireBase.service';
+
+import { TipoClenteComponent } from './administracion/components/tipo-clente/tipo-clente.component';
+import { PedidosComponent } from './administracion/components/pedidos/pedidos.component';
+import { PerfilComponent } from './administracion/components/perfil/perfil.component';
+
+import { AuthGuardService as AuthGuard } from './shared/services/auth-guard.service'
+import { RoleGuardService as RoleGuard } from './shared/services/role-guard.service';
+// import { BaseService } from './services/base.service';
+
 const APP_ROUTES: Routes = [
     { path: 'index_public', component: IndexComponent },
-    { canActivate: [BaseService],path: 'index_private', component:  IndexPrivateComponent},
-    { path: 'login', component:  LoginComponent},
-    { path: 'registro', component:  RegistroComponent},
-    
+
+    { path: 'login', component: LoginComponent },
+    { path: 'registro', component: RegistroComponent },
+    {canActivate: [AuthGuard], path: 'index_private', component: IndexPrivateComponent },
+    { path: 'tipoClientes', component: TipoClenteComponent, canActivate: [RoleGuard] },
+    { canActivate: [AuthGuard], path: 'pedidos', component: PedidosComponent },
+    { canActivate: [AuthGuard], path: 'perfil', component: PerfilComponent },
+
     // { path: 'home', component: HomeComponent },
     // { path: 'jugadores', component: JugadoresComponent },
     // { path: 'jugador/:id', component: JugadorComponent },
@@ -39,7 +50,7 @@ const APP_ROUTES: Routes = [
     // },
 
     // { canActivate: [AuthFireBaseService], path: 'editarEquipo/:id', component: EdicionEquipoComponent },
-    
+
     { path: '**', pathMatch: 'full', redirectTo: 'index_public' }
 ]
 

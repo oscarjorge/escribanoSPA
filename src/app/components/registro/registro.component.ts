@@ -1,16 +1,16 @@
-import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
+import { Component, OnInit, OnDestroy, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { RegistroService } from '../../services/registro.service';
-import { LoginService } from '../../services/login.service';
+import { RegistroService } from '../../shared/services/registro.service'
+import { LoginService } from '../../shared/services/login.service';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
-import { IRegistro } from '../../interfaces/iregistro'
+import { IRegistro } from '../../shared/interfaces/iregistro'
 
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
   styleUrls: ['./registro.component.css']
 })
-export class RegistroComponent implements OnInit {
+export class RegistroComponent implements OnInit, OnDestroy {
 
   registroForm: FormGroup;
   registro: IRegistro = {
@@ -26,7 +26,11 @@ export class RegistroComponent implements OnInit {
   ) {
 
   }
+  ngOnDestroy(){
+    document.querySelector('body').classList.remove('background-login');
+  }
   ngOnInit() {
+    document.querySelector('body').classList.add('background-login');
     this.registroForm = new FormGroup({
       username: new FormControl(this.registro.Username, Validators.required),
       email: new FormControl(this.registro.Email, [

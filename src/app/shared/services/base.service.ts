@@ -8,7 +8,7 @@ export class BaseService {
 
   }
   ls: any = localStorage; 
-  tokenStorage:string= 'escribano_token';
+  public tokenStorage:string= 'escribano_token';
   getPath(path){
     //return "http://api.antonioescribano.es/" + path;
     return "http://localhost:2881/" + path;
@@ -32,15 +32,15 @@ export class BaseService {
   getHeaderToken(){
     return new HttpHeaders().set('Authorization', 'bearer ' + this.getToken())
   }
-  isAuth(){
-    return localStorage.getItem(this.tokenStorage)!=null;
-  }
-  canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    if(!this.isAuth()){
-      this.router.navigate(['login']);
-      return false;
-    }
-    else
-      return true;
-  }
+  // isAuth(){
+  //   return localStorage.getItem(this.tokenStorage)!=null;
+  // }
+  // canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+  //   if(!this.isAuth()){
+  //     this.router.navigate(['login']);
+  //     return false;
+  //   }
+  //   else
+  //     return true;
+  // }
 }
